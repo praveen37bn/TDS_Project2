@@ -14,19 +14,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import openai
 import sys
-from dotenv import load_dotenv
 
-
-load_dotenv()
-
-# Access the API key from environment variables
-AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
-
+my_api= "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjIyZjMwMDMxNTdAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.jqgA4t_kF3xuPBBPlGeLSKobS64VlLoTFSdh9MUMchQ"
 # Set up OpenAI API key
+AIPROXY_TOKEN = os.environ.get(my_api)
 openai.api_key = AIPROXY_TOKEN
-
-
-# Set up OpenAI API key
 
 def load_and_explore(file_path):
     """Load the dataset and provide a basic summary."""
