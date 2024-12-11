@@ -1,3 +1,13 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "pandas",
+#   "matplotlib",
+#   "seaborn",
+#   "openai",
+# ]
+# ///
+
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,7 +16,7 @@ import openai
 import sys
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
+
 load_dotenv()
 
 # Access the API key from environment variables
@@ -14,6 +24,9 @@ AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
 
 # Set up OpenAI API key
 openai.api_key = AIPROXY_TOKEN
+
+
+# Set up OpenAI API key
 
 def load_and_explore(file_path):
     """Load the dataset and provide a basic summary."""
@@ -105,7 +118,7 @@ def save_readme(dataset_name, story, visualizations):
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python autolysis.py <dataset.csv>")
+        print("Usage: uv run autolysis.py <dataset.csv>")
         sys.exit(1)
 
     file_path = sys.argv[1]
