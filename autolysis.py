@@ -21,7 +21,7 @@ openai.api_key = AIPROXY_TOKEN
 
 def load_and_explore(file_path):
     """Load the dataset and provide a basic summary."""
-    data = pd.read_csv(file_path)
+    data = pd.read_csv(file_path, encoding='ISO-8859-1')
     summary = {
         "shape": data.shape,
         "columns": data.dtypes.to_dict(),
