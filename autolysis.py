@@ -22,10 +22,6 @@ from scipy.stats import zscore
 import chardet
 import requests
 from tenacity import retry, stop_after_attempt, wait_fixed
-import logging
-
-# Set up logging for better error tracking
-logging.basicConfig(level=logging.INFO)
 
 # Function to load dataset
 def load_dataset(file_path):
@@ -33,15 +29,14 @@ def load_dataset(file_path):
         with open(file_path, 'rb') as f:
             encoding = chardet.detect(f.read())['encoding']
         df = pd.read_csv(file_path, encoding=encoding)
-        logging.info(f"Loaded dataset: {file_path} ({df.shape[0]} rows, {df.shape[1]} columns).")
+        print(f"Loaded dataset: {file_path} ({df.shape[0]} rows, {df.shape[1]} columns).")
         return df
     except Exception as e:
-        logging.error(f"Error loading dataset {file_path}: {e}")
+        print(f"Error loading dataset {file_path}: {e}")
         sys.exit(1)
 
 # Function to generate visualizations
 def generate_visualizations(df, output_dir):
-    paths = []
     sns.set_theme(style="whitegrid")
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
 
@@ -50,24 +45,21 @@ def generate_visualizations(df, output_dir):
         pairplot_path = os.path.join(output_dir, "pairplot.png")
         plt.savefig(pairplot_path, dpi=300)
         plt.close()
-        paths.append(pairplot_path)
-        logging.info(f"Pairplot saved: {pairplot_path}")
+        print(f"Pairplot saved: {pairplot_path}")
 
     if "target" in df.columns:
         sns.histplot(df["target"].dropna(), kde=True, bins=30)
+        plt.title("Distribution of Target Variable")
         target_dist_path = os.path.join(output_dir, "target_distribution.png")
         plt.savefig(target_dist_path, dpi=300)
         plt.close()
-        paths.append(target_dist_path)
-        logging.info(f"Target distribution saved: {target_dist_path}")
-
-    return paths
+        print(f"Target distribution saved: {target_dist_path}")
 
 # Function to create correlation matrix
 def create_correlation_matrix(df, output_dir):
     numeric_cols = df.select_dtypes(include=[np.number])
     if numeric_cols.empty:
-        logging.info("No numeric columns available for correlation matrix.")
+        print("No numeric columns available for correlation matrix.")
         return
     corr_matrix = numeric_cols.corr()
     plt.figure(figsize=(10, 8))
@@ -76,10 +68,10 @@ def create_correlation_matrix(df, output_dir):
     heatmap_path = os.path.join(output_dir, "correlation_matrix.png")
     plt.savefig(heatmap_path, dpi=300)
     plt.close()
-    logging.info(f"Correlation matrix saved: {heatmap_path}")
+    print(f"Correlation matrix saved: {heatmap_path}")
 
 # Retry wrapper for LLM API calls
-@retry(stop=stop_after_attempt(3), wait=wait_fixed(5))
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
 def call_llm(prompt):
     url = "https://aiproxy.sanand.workers.dev/openai/v1/chat/completions"
     
@@ -98,17 +90,9 @@ def call_llm(prompt):
         ],
         "max_tokens": 500
     }
-
-    try:
-        response = requests.post(url, headers=headers, json=payload, timeout=30)  # Timeout of 30 seconds
-        response.raise_for_status()
-        return response.json()['choices'][0]['message']['content']
-    except requests.exceptions.Timeout:
-        logging.error("Request timed out.")
-        raise
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Request failed: {e}")
-        raise
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+    return response.json()['choices'][0]['message']['content']
 
 # Function to narrate the analysis
 def narrate_analysis(df, visualizations):
@@ -131,7 +115,7 @@ def save_readme(output_dir, dataset_name, summary, story, visualizations):
         f.write(f"{story}\n\n")
         for viz in visualizations:
             f.write(f"![{viz}]({viz})\n")
-    logging.info(f"README saved: {readme_path}")
+    print(f"README saved: {readme_path}")
 
 # Main function
 def main():
@@ -146,17 +130,15 @@ def main():
 
     # Load and analyze dataset
     df = load_dataset(file_path)
-    
-    # Generate visualizations (can be done in a separate step)
-    visualizations = generate_visualizations(df, output_dir)
+    generate_visualizations(df, output_dir)
     create_correlation_matrix(df, output_dir)
 
-    # Get analysis and story from LLM (can be done in a separate step)
-    story = narrate_analysis(df, visualizations=visualizations)
+    # Get analysis and story from LLM
+    story = narrate_analysis(df, visualizations=["pairplot.png", "correlation_matrix.png"])
     summary = df.describe(include='all').to_string()
 
     # Save README
-    save_readme(output_dir, dataset_name, summary, story, visualizations)
+    save_readme(output_dir, dataset_name, summary, story, visualizations=["pairplot.png", "correlation_matrix.png"])
 
 if __name__ == "__main__":
     main()
