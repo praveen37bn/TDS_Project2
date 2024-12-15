@@ -1,55 +1,11 @@
-# Analysis of media
+1. **Data Overview:**
+   The dataset provided consists of 2652 entries with eight columns that include date, language, type, title, author (by), and ratings for overall, quality, and repeatability. The overall rating, quality rating, and repeatability were recorded as integers, while the rest are string values. Notably, there are some missing values in the 'date' and 'by' columns. The dataset spans multiple languages and types, suggesting a wide range of media items being evaluated.
 
-## Summary
-```
-             date language   type              title                 by      overall      quality  repeatability
-count        2553     2652   2652               2652               2390  2652.000000  2652.000000    2652.000000
-unique       2055       11      8               2312               1528          NaN          NaN            NaN
-top     21-May-06  English  movie  Kanda Naal Mudhal  Kiefer Sutherland          NaN          NaN            NaN
-freq            8     1306   2211                  9                 48          NaN          NaN            NaN
-mean          NaN      NaN    NaN                NaN                NaN     3.047511     3.209276       1.494721
-std           NaN      NaN    NaN                NaN                NaN     0.762180     0.796743       0.598289
-min           NaN      NaN    NaN                NaN                NaN     1.000000     1.000000       1.000000
-25%           NaN      NaN    NaN                NaN                NaN     3.000000     3.000000       1.000000
-50%           NaN      NaN    NaN                NaN                NaN     3.000000     3.000000       1.000000
-75%           NaN      NaN    NaN                NaN                NaN     3.000000     4.000000       2.000000
-max           NaN      NaN    NaN                NaN                NaN     5.000000     5.000000       3.000000
-```
+2. **Analysis Conducted:**
+   The analysis focused on summarizing the numerical ratings by calculating descriptive statistics (mean, standard deviation, min, max) for overall, quality, and repeatability ratings. Furthermore, I explored the categorical data by identifying the unique counts of entries across different authors, titles, types, and languages. I also examined the correlation between the overall ratings and other numerical ratings to assess their relationships.
 
-## Narrative
-Based on your dataset, comprising 2652 rows and 8 columns, we can summarize key insights and suggest potential actions as follows:
+3. **Insights Discovered:**
+   The descriptive statistics highlighted that the average overall rating is approximately 3.05, indicating a generally positive reception but leaving room for improvement. Quality ratings were slightly higher on average (around 3.21). The repeatability score was relatively low, averaging just below 1.5, suggesting that many items are not frequently revisited or reused. The dataset exhibited diverse content, with a large number of unique entries, indicating a rich pool of offerings that may appeal to varied audiences.
 
-### Key Insights:
-
-1. **Data Completeness**:
-   - Out of 2652 rows, there are 2553 entries for the 'date', 2390 for the 'by' field, indicating some missing data, especially in the 'by' column. Efforts should be made to either fill these gaps or handle them in analysis.
-   - The unique values in 'language' (11) and 'type' (8) suggest a diverse dataset possibly representative of different cultures or media formats.
-
-2. **Language Distribution**:
-   - The most frequent language is English, occurring 1306 times. This highlights a potential bias toward English content, which might indicate that the dataset is skewed toward certain cultural outputs.
-
-3. **Title Variability**:
-   - There are 2312 unique titles despite 2652 entries, implying that many titles do not have multiple entries, which could be due to some being judged, reviewed, or captured only once.
-
-4. **Quality and Ratings**:
-   - The 'overall' score has a mean of approximately 3.05, with a standard deviation of 0.76. The maximum score is 5, indicating that there are reviews reaching very high ratings. 
-   - The 'quality' score's mean is slightly higher at 3.21, suggesting that overall perceptions of quality slightly exceed general ratings.
-
-5. **Repeatability**:
-   - The 'repeatability' score has a lower mean of approximately 1.49, suggesting that the content may lack aspects that encourage repeated viewing or engagement.
-
-6. **Rating Distributions**:
-   - The quartiles of the 'overall' and 'quality' scores suggest that most ratings are around the middle of the scale (mostly between 3 and 4), which can indicate a tendency towards mediocre reviews.
-
-### Suggestions for Action:
-
-1. **Data Integrity Measures**:
-   - Consider strategies for dealing with missing data in the 'by' column, such as imputation or aggregating by language/type if analysis allows.
-  
-2. **Content Diversity**:
-   - Since English is the most prevalent language, consider developing or promoting content from underrepresented languages to enhance diversity and reach a broader audience.
-
-3. **Enhancing Content**:
-   - Given the lower repeatability score, investigate the reasons behind it.
-
-![/Users/praveenkumar/Desktop/TDS/TDS_Project2/media/pairplot.png](/Users/praveenkumar/Desktop/TDS/TDS_Project2/media/pairplot.png)
+4. **Implications of Findings:**
+   These insights suggest that, while the overall and quality ratings are reasonably positive, there is potential to enhance content to encourage repeat interactions. Media providers could focus on understanding the factors contributing to lower repeatability scores and consider strategies such as targeted marketing, content improvement, or audience engagement initiatives to drive higher retention rates. Moreover, exploring user feedback will be vital in refining offerings to better suit audience preferences. Finally, leveraging high-quality content from specific authors or types could help boost overall ratings and audience satisfaction.
