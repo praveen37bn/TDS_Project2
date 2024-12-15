@@ -1,12 +1,3 @@
-# /// script
-# dependencies = [
-#   "pandas",
-#   "matplotlib",
-#   "seaborn",
-#   "openai","requests","scikit-learn","scipy","numpy","chardet"
-# ]
-# ///
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
