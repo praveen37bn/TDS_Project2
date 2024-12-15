@@ -1,4 +1,4 @@
-.environ
+.env
 myenv
 goodreads.csv
 happiness.csv
