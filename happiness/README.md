@@ -1,27 +1,50 @@
-In a world where the quest for happiness transcends borders, a team of intrepid researchers set out to uncover the intricate layers of well-being across nations. Armed with an extensive dataset, they embarked on a journey through numbers, seeking the hidden patterns that illuminate the human experience. 
+# Analysis of happiness
 
-### The Prelude: A Tapestry of Data
+## Summary
+```
+       Country name         year  Life Ladder  Log GDP per capita  Social support  Healthy life expectancy at birth  Freedom to make life choices   Generosity  Perceptions of corruption  Positive affect  Negative affect
+count          2363  2363.000000  2363.000000         2335.000000     2350.000000                       2300.000000                   2327.000000  2282.000000                2238.000000      2339.000000      2347.000000
+unique          165          NaN          NaN                 NaN             NaN                               NaN                           NaN          NaN                        NaN              NaN              NaN
+top         Lebanon          NaN          NaN                 NaN             NaN                               NaN                           NaN          NaN                        NaN              NaN              NaN
+freq             18          NaN          NaN                 NaN             NaN                               NaN                           NaN          NaN                        NaN              NaN              NaN
+mean            NaN  2014.763860     5.483566            9.399671        0.809369                         63.401828                      0.750282     0.000098                   0.743971         0.651882         0.273151
+std             NaN     5.059436     1.125522            1.152069        0.121212                          6.842644                      0.139357     0.161388                   0.184865         0.106240         0.087131
+min             NaN  2005.000000     1.281000            5.527000        0.228000                          6.720000                      0.228000    -0.340000                   0.035000         0.179000         0.083000
+25%             NaN  2011.000000     4.647000            8.506500        0.744000                         59.195000                      0.661000    -0.112000                   0.687000         0.572000         0.209000
+50%             NaN  2015.000000     5.449000            9.503000        0.834500                         65.100000                      0.771000    -0.022000                   0.798500         0.663000         0.262000
+75%             NaN  2019.000000     6.323500           10.392500        0.904000                         68.552500                      0.862000     0.093750                   0.867750         0.737000         0.326000
+max             NaN  2023.000000     8.019000           11.676000        0.987000                         74.600000                      0.985000     0.700000                   0.983000         0.884000         0.705000
+```
 
-Their analysis began with a broad overview of the data, revealing a mosaic of 2,363 entries from 165 unique countries, with Lebanon emerging as the most frequently represented nation. The years spanned from 2005 to 2023, encapsulating nearly two decades of societal evolution. As the researchers delved deeper, they discovered an average Life Ladder score of 5.48, a scale of happiness that indicated varying degrees of contentment among populations worldwide. 
+## Narrative
+Based on your dataset, here are some insights, visualizations, and potential actions you could consider.
 
-### The Dance of Correlation
+### Key Insights:
 
-With curiosity ignited, the researchers turned their attention to the correlation matrix. They visualized the relationships among multiple factors influencing happiness—Log GDP per capita, social support, freedom to make life choices, and perceptions of corruption. The correlation matrix came alive like an intricate dance, revealing that while wealth does play a role in happiness, other factors such as social support and personal freedom significantly bolster well-being. The researchers noted that nations with strong social networks and higher freedom to make life choices tended to have happier citizens, painting a picture of interconnectedness in the pursuit of joy.
+1. **Country Diversity**: The dataset contains 165 unique countries, indicative of a broad geographic representation. However, certain countries might have more observations than others, with Lebanon having the highest frequency (18 entries).
 
-### The Clusters of Happiness
+2. **Year Range**: The data spans from 2005 to 2023. The year 2014 seems to be the midpoint with an average year of approximately 2014.76. This suggests that data collection may be skewed toward the more recent years.
 
-As they ventured further, the researchers employed the DBSCAN clustering algorithm to group countries based on their happiness indicators. The resulting clusters formed distinct communities of nations, each with shared traits. Some clusters, marked by high GDP and social support, echoed the laughter of their citizens, while others, despite lower economic indicators, thrived on robust social connections and a sense of belonging. The DBSCAN clusters illustrated a critical insight: happiness is not solely dictated by wealth but is significantly influenced by the collective spirit of a community.
+3. **Life Ladder**: 
+   - The average "Life Ladder" score is approximately 5.48, with a minimum score of 1.28 and a maximum score of 8.02. 
+   - The interquartile range (IQR: Q3 - Q1) for Life Ladder is significant (approximately 1.68), indicating a substantial difference in happiness or well-being across countries.
 
-### The Hierarchical Symphony
+4. **Log GDP per Capita**: 
+   - The average value here is 9.4, representing a wide range of economic contexts.
+   - There’s a clear positive correlation expected between GDP per capita and Life Ladder scores, which could be supported by further statistical analysis.
 
-Next, the researchers turned to hierarchical clustering, a more nuanced approach that allowed them to observe the relationships between countries as branches of a vast tree. Each branch told a story of kinship and divergence, revealing how countries with similar happiness scores clustered together. They marveled at the countries that thrived despite adversity, driven by resilience and solidarity. It became evident that hierarchical clustering not only showcased geographical and economic boundaries but also illuminated the shared human experience that transcended them.
+5. **Social Support**: 
+   - With an average score of approximately 0.81, social support is an important component of well-being. 
+   - There is variation across the data, which hints at differing societal safety nets and community support systems in various countries.
 
-### The Heart of the Matter
+6. **Healthy Life Expectancy**: The average score is around 63.40 years, with a spread from 6.72 to 74.60 years, indicating significant health disparities.
 
-As the researchers pieced together their findings, they stumbled upon the complexities of human emotion. They noted the delicate balance between positive and negative affect, which shaped the overall happiness of individuals. With an average positive affect score of 0.65 and a negative affect score of 0.27, it became apparent that the emotional landscape is multifaceted, influenced by myriad factors from personal choices to societal structures.
+7. **Freedom to Make Life Choices**: Similar to the above indicators, there is an indication that freedom levels (average score of 0.75) can be linked to perceived happiness and life satisfaction.
 
-### The Conclusion: A Call to Action
+8. **Corruption Perception**: A perception of corruption is indicated (mean around 0.74) which may inversely relate to both the Life Ladder and social support scores. 
 
-In their final report, the researchers called for a reevaluation of how societies measure success and happiness. They argued that while economic growth remains essential, fostering social support, ensuring freedom in life choices, and combating corruption should be at the forefront of policy-making. The data revealed a new narrative: a world where happiness is cultivated through community, connection, and compassion is not just an ideal but a tangible reality waiting to be embraced.
+9. **Positive and Negative Affects**: 
+   - Positive affect is significantly higher on average (mean of approximately 0.65) than negative affect (mean of approximately 0.27), indicating that, overall, individuals feel more positive than negative, although there are variations
 
-As the sun set on their research journey, the researchers felt a renewed sense of purpose. They had embarked on a quest not just for numbers, but for understanding the essence of happiness itself—a universal pursuit that binds humanity together, regardless of borders. And in that understanding, they found hope for a brighter, more joyful future for all.
+![pairplot.png](pairplot.png)
+![correlation_matrix.png](correlation_matrix.png)

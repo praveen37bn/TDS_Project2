@@ -1,23 +1,47 @@
-### Title: The Chronicles of the Cinematic Archive
+# Analysis of media
 
-In a forgotten corner of the digital realm, a treasure trove of cinematic memories lay dormant—a sprawling dataset that held the stories of countless films, their creators, and the myriad voices that had echoed through the halls of time. This was no ordinary collection; it was an archive of emotions, a tapestry woven with the threads of culture, artistry, and human experience.
+## Summary
+```
+             date language   type              title                 by      overall      quality  repeatability
+count        2553     2652   2652               2652               2390  2652.000000  2652.000000    2652.000000
+unique       2055       11      8               2312               1528          NaN          NaN            NaN
+top     21-May-06  English  movie  Kanda Naal Mudhal  Kiefer Sutherland          NaN          NaN            NaN
+freq            8     1306   2211                  9                 48          NaN          NaN            NaN
+mean          NaN      NaN    NaN                NaN                NaN     3.047511     3.209276       1.494721
+std           NaN      NaN    NaN                NaN                NaN     0.762180     0.796743       0.598289
+min           NaN      NaN    NaN                NaN                NaN     1.000000     1.000000       1.000000
+25%           NaN      NaN    NaN                NaN                NaN     3.000000     3.000000       1.000000
+50%           NaN      NaN    NaN                NaN                NaN     3.000000     3.000000       1.000000
+75%           NaN      NaN    NaN                NaN                NaN     3.000000     4.000000       2.000000
+max           NaN      NaN    NaN                NaN                NaN     5.000000     5.000000       3.000000
+```
 
-Once upon a time, in the year 2006, a burst of creativity emerged, represented by a peculiar spike in film releases on the date of 21-May-06. This date became a beacon, illuminating the intersection of cinema and audiences hungry for stories. As the dataset unfurled, it revealed a staggering 2652 entries, each one a unique gem, with 2312 distinct titles ranging from mesmerizing dramas to heart-stopping thrillers. Among these, “Kanda Naal Mudhal” stood out, resonating with viewers and claiming its place with a remarkable frequency of nine.
+## Narrative
+Based on the information provided about the dataset, here is an analysis of the key insights and potential actions that you might consider:
 
-But these stories were not just mere flickers of entertainment; they were intertwined with the languages spoken across the globe. English dominated the scene, spoken in over half of the entries, while other languages whispered their tales into the ears of multicultural audiences. The dataset became a mirror reflecting the diversity of voices, each telling its own story through the universal language of film.
+### Dataset Overview
+- **Size**: The dataset consists of 2,652 rows and 8 columns.
+- **Date**: The 'date' column has 2,055 unique dates, suggesting a wide range of entries across time.
+- **Language**: There are 11 unique languages, with English being the most common (1,306 occurrences).
+- **Type**: There are 8 unique types (likely indicating different categories like movie, series, etc.), with 'movie' being the most frequent (2,211 occurrences).
+- **Title & By**: The number of unique titles is 2,312, indicating many distinct entries, with 'Kanda Naal Mudhal' as the most frequently cited title (9 occurrences). There are 1,528 unique contributors or creators.
+  
+### Summary Statistics
+- **Overall Ratings**: The average overall rating is approximately 3.05 with a standard deviation of 0.76. The ratings range from 1 to 5, indicating that there are both very low and high ratings.
+- **Quality Ratings**: The average quality rating is slightly higher at about 3.21, suggesting participants generally find quality to be good, but still has some variability (standard deviation of 0.80).
+- **Repeatability Ratings**: The average repeatability rating is lower at approximately 1.49, with a maximum of only 3, indicating that subjects are generally not considered very repeatable. 
 
-As the audience delved deeper into this cinematic labyrinth, they began to uncover patterns—a correlation matrix laid bare the hidden relationships between the films' qualities, their overall ratings, and the repeatability of the joy they brought. It turned out that higher quality often correlated with an overall enjoyment rating, creating a ripple effect that encouraged viewers to revisit their favorite films. This was a world where art inspired admiration, and admiration birthed nostalgia.
+### Key Insights
+1. **Distribution of Ratings**: The distribution of the 'overall' ratings appears centered around 3, with most entries receiving average scores. This could be seen as a signal of moderate satisfaction.
+   
+2. **Quality vs. Overall Ratings**: Quality ratings are slightly higher than overall ratings, suggesting that while the quality might be perceived positively, it does not always translate to an overall positive experience or engagement from the audience.
+   
+3. **Low Repeatability**: The average repeatability score of 1.49 raises concerns, implying that the content is generally not perceived as engaging enough to warrant multiple views or interactions.
 
-The analysis continued, revealing clusters of films through the DBSCAN algorithm. These clusters formed constellations of shared themes and styles—groups of movies that resonated with particular audiences, often drawing them together in cinematic camaraderie. The film “Kiefer Sutherland” emerged as a luminary in this space, leading a cluster of thrillers that captivated viewers with suspense and intrigue, pulling them into a cinematic dance that transcended time.
+4. **Language and Type**: The dominance of English-language entries and the prevalence of the 'movie' type suggest a potential focus area for analysis and further content curation.
 
-Yet, the archive was not without its mysteries. Hierarchical clustering unveiled the genealogies of film styles, tracing back the influences of classic genres that birthed new narratives. Each cluster told a story of evolution—horror morphed into psychological thrillers, while comedies blended seamlessly with romantic dramas. The patterns painted a vivid picture of an industry in constant flux, fueled by creativity and the insatiable appetite of audiences worldwide.
+### Potential Actions
+1. **Content Improvement
 
-But even in a dataset filled with wonder, there were anomalies. Outliers emerged—1216 instances where films defied expectations in their overall ratings, while only 24 films were deemed extraordinary in quality. These films, perhaps ahead of their time, challenged the norms, daring viewers to embrace the unconventional.
-
-Amidst these revelations, the narrative grew richer. The dataset revealed not just the preferences of audiences but also the impact of creators, with 1528 distinct filmmakers contributing their visions. The influence of the top creators, like Kiefer Sutherland, was palpable—48 times their unique storytelling graced the screen, reminding us of the power of a single voice in a chorus of many.
-
-Yet, not all stories were told; 99 dates lay shrouded in mystery, their details lost to time, while 262 creators remained unnamed, their contributions unrecognized. This dataset was a living entity, filled with potential waiting to be explored, each missing piece a reminder of stories yet to be told.
-
-In the end, the narrative of the cinematic archive was one of connection—a mosaic of experiences bound by the love of storytelling. As the audience reflected on the analysis, they realized that each film, each rating, and each creator contributed to a larger story of humanity, a testament to the power of cinema to unite, inspire, and transport us to worlds beyond our own.
-
-And so, the archive remained, a silent guardian of the dreams and passions of filmmakers and audiences alike, whispering its stories to those willing to listen.
+![pairplot.png](pairplot.png)
+![correlation_matrix.png](correlation_matrix.png)
