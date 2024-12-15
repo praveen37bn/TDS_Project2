@@ -17,31 +17,39 @@ max           NaN      NaN    NaN                NaN                NaN     5.00
 ```
 
 ## Narrative
-Based on the information provided about the dataset, here is an analysis of the key insights and potential actions that you might consider:
+Based on your dataset, comprising 2652 rows and 8 columns, we can summarize key insights and suggest potential actions as follows:
 
-### Dataset Overview
-- **Size**: The dataset consists of 2,652 rows and 8 columns.
-- **Date**: The 'date' column has 2,055 unique dates, suggesting a wide range of entries across time.
-- **Language**: There are 11 unique languages, with English being the most common (1,306 occurrences).
-- **Type**: There are 8 unique types (likely indicating different categories like movie, series, etc.), with 'movie' being the most frequent (2,211 occurrences).
-- **Title & By**: The number of unique titles is 2,312, indicating many distinct entries, with 'Kanda Naal Mudhal' as the most frequently cited title (9 occurrences). There are 1,528 unique contributors or creators.
+### Key Insights:
+
+1. **Data Completeness**:
+   - Out of 2652 rows, there are 2553 entries for the 'date', 2390 for the 'by' field, indicating some missing data, especially in the 'by' column. Efforts should be made to either fill these gaps or handle them in analysis.
+   - The unique values in 'language' (11) and 'type' (8) suggest a diverse dataset possibly representative of different cultures or media formats.
+
+2. **Language Distribution**:
+   - The most frequent language is English, occurring 1306 times. This highlights a potential bias toward English content, which might indicate that the dataset is skewed toward certain cultural outputs.
+
+3. **Title Variability**:
+   - There are 2312 unique titles despite 2652 entries, implying that many titles do not have multiple entries, which could be due to some being judged, reviewed, or captured only once.
+
+4. **Quality and Ratings**:
+   - The 'overall' score has a mean of approximately 3.05, with a standard deviation of 0.76. The maximum score is 5, indicating that there are reviews reaching very high ratings. 
+   - The 'quality' score's mean is slightly higher at 3.21, suggesting that overall perceptions of quality slightly exceed general ratings.
+
+5. **Repeatability**:
+   - The 'repeatability' score has a lower mean of approximately 1.49, suggesting that the content may lack aspects that encourage repeated viewing or engagement.
+
+6. **Rating Distributions**:
+   - The quartiles of the 'overall' and 'quality' scores suggest that most ratings are around the middle of the scale (mostly between 3 and 4), which can indicate a tendency towards mediocre reviews.
+
+### Suggestions for Action:
+
+1. **Data Integrity Measures**:
+   - Consider strategies for dealing with missing data in the 'by' column, such as imputation or aggregating by language/type if analysis allows.
   
-### Summary Statistics
-- **Overall Ratings**: The average overall rating is approximately 3.05 with a standard deviation of 0.76. The ratings range from 1 to 5, indicating that there are both very low and high ratings.
-- **Quality Ratings**: The average quality rating is slightly higher at about 3.21, suggesting participants generally find quality to be good, but still has some variability (standard deviation of 0.80).
-- **Repeatability Ratings**: The average repeatability rating is lower at approximately 1.49, with a maximum of only 3, indicating that subjects are generally not considered very repeatable. 
+2. **Content Diversity**:
+   - Since English is the most prevalent language, consider developing or promoting content from underrepresented languages to enhance diversity and reach a broader audience.
 
-### Key Insights
-1. **Distribution of Ratings**: The distribution of the 'overall' ratings appears centered around 3, with most entries receiving average scores. This could be seen as a signal of moderate satisfaction.
-   
-2. **Quality vs. Overall Ratings**: Quality ratings are slightly higher than overall ratings, suggesting that while the quality might be perceived positively, it does not always translate to an overall positive experience or engagement from the audience.
-   
-3. **Low Repeatability**: The average repeatability score of 1.49 raises concerns, implying that the content is generally not perceived as engaging enough to warrant multiple views or interactions.
+3. **Enhancing Content**:
+   - Given the lower repeatability score, investigate the reasons behind it.
 
-4. **Language and Type**: The dominance of English-language entries and the prevalence of the 'movie' type suggest a potential focus area for analysis and further content curation.
-
-### Potential Actions
-1. **Content Improvement
-
-![pairplot.png](pairplot.png)
-![correlation_matrix.png](correlation_matrix.png)
+![/Users/praveenkumar/Desktop/TDS/TDS_Project2/media/pairplot.png](/Users/praveenkumar/Desktop/TDS/TDS_Project2/media/pairplot.png)

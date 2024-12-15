@@ -17,34 +17,35 @@ max             NaN  2023.000000     8.019000           11.676000        0.98700
 ```
 
 ## Narrative
-Based on your dataset, here are some insights, visualizations, and potential actions you could consider.
+Based on the provided dataset, here are key insights and suggested actions derived from the data analysis:
 
 ### Key Insights:
 
-1. **Country Diversity**: The dataset contains 165 unique countries, indicative of a broad geographic representation. However, certain countries might have more observations than others, with Lebanon having the highest frequency (18 entries).
+1. **General Trends**:
+   - The dataset contains 2363 entries over a range of years from 2005 to 2023.
+   - The mean life ladder score, which indicates subjective well-being, is approximately 5.48, with scores ranging from a minimum of 1.28 to a maximum of 8.02 across different countries.
 
-2. **Year Range**: The data spans from 2005 to 2023. The year 2014 seems to be the midpoint with an average year of approximately 2014.76. This suggests that data collection may be skewed toward the more recent years.
+2. **Life Ladder**:
+   - The life ladder values show substantial variability, indicating significant differences in happiness or well-being perceptions among countries.
+   - Only about 5.6% of entries have a Life Ladder score below the 25th percentile (4.65).
 
-3. **Life Ladder**: 
-   - The average "Life Ladder" score is approximately 5.48, with a minimum score of 1.28 and a maximum score of 8.02. 
-   - The interquartile range (IQR: Q3 - Q1) for Life Ladder is significant (approximately 1.68), indicating a substantial difference in happiness or well-being across countries.
+3. **Economic Factors** (Log GDP per Capita):
+   - The average log GDP per capita is around 9.40, with a minimum GDP per capita of around 5.53 and a maximum of about 11.68, suggesting a diverse economic landscape.
+   - It is important to correlate this with Life Ladder scores to help quantify the impact of economic well-being on perceived happiness.
 
-4. **Log GDP per Capita**: 
-   - The average value here is 9.4, representing a wide range of economic contexts.
-   - There’s a clear positive correlation expected between GDP per capita and Life Ladder scores, which could be supported by further statistical analysis.
+4. **Social Support**:
+   - The average social support score stands at 0.81, with minimum and maximum values of 0.23 and 0.99 respectively. This indicates that social relationships might play a significant role in overall well-being.
+   - The correlation between social support and Life Ladder scores could be explored to understand if support systems effectively contribute to life satisfaction.
 
-5. **Social Support**: 
-   - With an average score of approximately 0.81, social support is an important component of well-being. 
-   - There is variation across the data, which hints at differing societal safety nets and community support systems in various countries.
+5. **Health and Life Expectancy**:
+   - The average healthy life expectancy at birth is approximately 63.4 years, with considerable variation. This suggests that health outcomes have implications for well-being as reflected in Life Ladder scores.
+   - A potential avenue for further investigation could address the impact of healthier lifestyles and access to healthcare on overall life satisfaction.
 
-6. **Healthy Life Expectancy**: The average score is around 63.40 years, with a spread from 6.72 to 74.60 years, indicating significant health disparities.
+6. **Freedom to Choose**:
+   - The mean score for 'Freedom to make life choices' is around 0.75, with the upper quartile being significantly higher. Societal and governmental structures in countries with lower scores could be assessed for limitations on personal freedoms.
 
-7. **Freedom to Make Life Choices**: Similar to the above indicators, there is an indication that freedom levels (average score of 0.75) can be linked to perceived happiness and life satisfaction.
+7. **Corruption and Generosity**:
+   - The perceptions of corruption reveal a mean score of 0.74, while the average generosity score is near zero (0.0001), indicating widespread poverty or lack of philanthropic engagement in the dataset.
+   - Countries with lower corruption perceptions
 
-8. **Corruption Perception**: A perception of corruption is indicated (mean around 0.74) which may inversely relate to both the Life Ladder and social support scores. 
-
-9. **Positive and Negative Affects**: 
-   - Positive affect is significantly higher on average (mean of approximately 0.65) than negative affect (mean of approximately 0.27), indicating that, overall, individuals feel more positive than negative, although there are variations
-
-![pairplot.png](pairplot.png)
-![correlation_matrix.png](correlation_matrix.png)
+![/Users/praveenkumar/Desktop/TDS/TDS_Project2/happiness/pairplot.png](/Users/praveenkumar/Desktop/TDS/TDS_Project2/happiness/pairplot.png)
